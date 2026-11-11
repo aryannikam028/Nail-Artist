@@ -1,0 +1,143 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --color-blush: #F8C8DC;
+    --color-rose: #EFA6C8;
+    --color-rosegold: #B76E79;
+    --color-pearl: #FFF9FC;
+    --color-champagne: #F5E6D3;
+    --color-burgundy: #57243B;
+    --color-lavender: #E9DDF8;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    background-color: #FFF9FC;
+    color: #57243B;
+    overflow-x: hidden;
+  }
+
+  /* Custom luxury scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #FFF0F5;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #EFA6C8;
+    border-radius: 9999px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #B76E79;
+  }
+}
+
+@layer components {
+  /* Glassmorphism Classes */
+  .glass-nav {
+    background: rgba(255, 249, 252, 0.85);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-bottom: 1px solid rgba(239, 166, 200, 0.25);
+  }
+
+  .glass-card {
+    background: rgba(255, 255, 255, 0.72);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(248, 200, 220, 0.55);
+    box-shadow: 0 10px 30px -10px rgba(183, 110, 121, 0.15);
+  }
+
+  .glass-card-hover {
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .glass-card-hover:hover {
+    transform: translateY(-6px);
+    border-color: rgba(183, 110, 121, 0.6);
+    box-shadow: 0 20px 40px -12px rgba(87, 36, 59, 0.2), 0 0 25px rgba(248, 200, 220, 0.4);
+  }
+
+  /* Shimmer button overlay */
+  .btn-shimmer {
+    position: relative;
+    overflow: hidden;
+  }
+  .btn-shimmer::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -60%;
+    width: 20%;
+    height: 200%;
+    background: linear-gradient(
+      to right,
+      rgba(255, 255, 255, 0) 0%,
+      rgba(255, 255, 255, 0.45) 50%,
+      rgba(255, 255, 255, 0) 100%
+    );
+    transform: rotate(25deg);
+    transition: all 0.75s ease;
+  }
+  .btn-shimmer:hover::after {
+    left: 140%;
+  }
+
+  /* Luxury gradient text */
+  .text-luxury-gradient {
+    background: linear-gradient(135deg, #57243B 0%, #B76E79 50%, #BD5082 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .text-gold-gradient {
+    background: linear-gradient(135deg, #B76E79 0%, #D4A5AB 50%, #8E2C58 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  /* 3D Cylinder & Perspective Helpers */
+  .preserve-3d {
+    transform-style: preserve-3d;
+    -webkit-transform-style: preserve-3d;
+  }
+
+  .backface-hidden {
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+  }
+
+  .perspective-1000 {
+    perspective: 1000px;
+    -webkit-perspective: 1000px;
+  }
+
+  .perspective-1200 {
+    perspective: 1200px;
+    -webkit-perspective: 1200px;
+  }
+
+  .perspective-1400 {
+    perspective: 1400px;
+    -webkit-perspective: 1400px;
+  }
+}
+
+/* Reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
